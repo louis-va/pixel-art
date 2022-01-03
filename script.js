@@ -2,6 +2,7 @@
 
 let currentColor = '#000';
 let currentSize = 10;
+let newSize = 10;
 
 function createGrid(size) {
     let canvas = document.querySelector('#canvas');
@@ -38,15 +39,38 @@ function paint(square, color) {
     square.style.backgroundColor = color;
 }
 
-function clear() {
+function eraseGrid() {
     const canvas = document.getElementById("canvas")
     while (canvas.firstChild) {
-        canvas.firstChild.remove()
+        canvas.firstChild.remove();
     }
-    createGrid(currentSize)
 }
 
-const clearButton = document.getElementById("clear");
+function clear() {
+    eraseGrid();
+    createGrid(currentSize);
+}
+
+function resize() {
+    if(currentSize != newSize) {
+        eraseGrid();
+        createGrid(newSize);
+        currentSize = newSize;
+    }
+}
+
+function changeSize() {
+    newSize = document.getElementById('resizeSlider').value;
+    document.getElementById('size').textContent = newSize + "x" + newSize;
+}
+
+const clearButton = document.getElementById('clear');
 clearButton.addEventListener('click', clear);
+
+const resizeButton = document.getElementById('resize');
+resizeButton.addEventListener('click', resize);
+
+const resizeSlider = document.getElementById('resizeSlider');
+resizeSlider.addEventListener('input', changeSize);
 
 createGrid(currentSize);
