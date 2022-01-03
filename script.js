@@ -1,6 +1,6 @@
 'use strict';
 
-let currentColor = '#000';
+let currentColor = '#000000';
 let currentSize = 10;
 let newSize = 10;
 
@@ -64,6 +64,31 @@ function changeSize() {
     document.getElementById('size').textContent = newSize + "x" + newSize;
 }
 
+function changeColor(button) {
+    let buttons = document.querySelectorAll('button.color');
+
+    /* remove selected class from current color button */
+    buttons.forEach((btn) => {
+        if(btn.getAttribute('data-value') == currentColor) btn.classList.toggle('selected');
+    });
+
+    button.classList.toggle('selected');
+    currentColor = button.getAttribute('data-value');
+}
+
+function createColorButtons() {
+    let buttons = document.querySelectorAll('button.color');
+    let color;
+    buttons.forEach((button) => {
+        color = button.getAttribute('data-value');
+        button.style.backgroundColor = color;
+
+        button.addEventListener('click', (e) => {
+            changeColor(e.target);
+        });
+    });
+}
+
 const clearButton = document.getElementById('clear');
 clearButton.addEventListener('click', clear);
 
@@ -74,3 +99,4 @@ const resizeSlider = document.getElementById('resizeSlider');
 resizeSlider.addEventListener('input', changeSize);
 
 createGrid(currentSize);
+createColorButtons();

@@ -38,7 +38,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: #ff9798;
+    background-color: #FFF;
 } 
 
 .wrapper {
@@ -106,7 +106,8 @@ body {
 }
 
 .square.mouseover {
-    border: 2px solid #FF0000;
+    box-shadow: inset 0px 0px 0px 2px #FFF;
+    border: 2px solid #000;
 }
 
 /** TOOLS **/
@@ -132,7 +133,7 @@ button:active {
 
 /** SLIDER **/
 .resize {
-    margin-top: 30px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,7 +160,7 @@ button:active {
     cursor: pointer; /* Cursor on hover */
     border-radius: 0px;
     border: 2px solid #FFF;
-  }
+}
   
 .resize input::-moz-range-thumb {
     width: 15px; /* Set a specific slider handle width */
@@ -168,4 +169,28 @@ button:active {
     cursor: pointer; /* Cursor on hover */
     border-radius: 0px;
     border: 2px solid #FFF;
-  }
+}
+
+/** COLORS **/
+.colors {
+    display: flex;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    background-color: #FFF;
+    padding: 3px;
+    gap: 1px;
+}
+
+.colors button.color {
+    width: 20%;
+    flex: 1;
+    border: none;
+    padding: 13px;
+    border: 1px solid #FFF;
+}
+
+.colors button.color.selected {
+    box-shadow: inset 0px 0px 0px 2px #FFF;
+    border: 1px solid #000;
+}
