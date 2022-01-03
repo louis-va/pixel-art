@@ -5,11 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Pixel Art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+    <title>Pixel Editor</title>
 </head>
 <body>
     <section id="main">
-        <div id="canvas"></div>
+        <div class="header">
+            <div class="icon">
+                <div class="icon-line"></div>
+                <div class="icon-line"></div>
+                <div class="icon-line"></div>
+            </div>
+            <div class="title">
+                Pixel Editor
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="window left">
+                <div class="header">
+                    <div class="icon">
+                        <div class="icon-line"></div>
+                        <div class="icon-line"></div>
+                        <div class="icon-line"></div>
+                    </div>
+                    <div class="title">
+                        Tools
+                    </div>
+                </div>
+                <div class="tools">
+                    <button class="clear" id="clear">Clear</button>
+                </div>
+            </div>
+
+            <div class="window">
+                <div class="header">
+                    <div class="icon">
+                        <div class="icon-line"></div>
+                        <div class="icon-line"></div>
+                        <div class="icon-line"></div>
+                    </div>
+                    <div class="title">
+                        Canvas
+                    </div>
+                </div>
+                <div id="canvas"></div>
+            </div>
+        </div>
     </section>
 </body>
 <script src="script.js"></script>

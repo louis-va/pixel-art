@@ -1,6 +1,7 @@
 'use strict';
 
 let currentColor = '#000';
+let currentSize = 10;
 
 function createGrid(size) {
     let canvas = document.querySelector('#canvas');
@@ -18,9 +19,14 @@ function createGrid(size) {
             });
 
             square.addEventListener('mouseover', (e) => {
+                e.target.classList.toggle('mouseover');
                 if(e.buttons == 1 || e.buttons == 3){
                     paint(e.target, currentColor);
                 }
+            });
+
+            square.addEventListener('mouseout', (e) => {
+                e.target.classList.toggle('mouseover');
             });
 
             canvas.appendChild(square);
@@ -32,4 +38,15 @@ function paint(square, color) {
     square.style.backgroundColor = color;
 }
 
-createGrid(8);
+function clear() {
+    const canvas = document.getElementById("canvas")
+    while (canvas.firstChild) {
+        canvas.firstChild.remove()
+    }
+    createGrid(currentSize)
+}
+
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener('click', clear);
+
+createGrid(currentSize);
